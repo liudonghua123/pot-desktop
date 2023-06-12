@@ -201,8 +201,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 19
-      - name: Install Rust Stable
-        uses: dtolnay/rust-toolchain@stable
+      # - name: Install Rust Stable
+      #   uses: dtolnay/rust-toolchain@stable
+      - name: check toolchain version
+        run: |
+          node --version
+          npm --version
+          rustc --version
+          cargo --version
       - name: install dependencies
         run: |
           rustup target add ${{ matrix.target }}
